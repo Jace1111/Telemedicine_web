@@ -1,6 +1,6 @@
 class CreateMeasures < ActiveRecord::Migration[6.0]
   def change
-    create_table :New Patient do |t|
+    create_table :measures do |t|
       t.string :Patient_Name
       t.float :Date
       t.float :Time

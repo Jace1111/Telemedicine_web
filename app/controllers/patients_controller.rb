@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_account!, only: [:new,:create,:destroy]
   # GET /patients
   # GET /patients.json
   def index
@@ -25,6 +25,8 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = Patient.new(patient_params)
+    @patient.account_id = current_account.id
+
 
     respond_to do |format|
       if @patient.save

@@ -1,32 +1,23 @@
 <%= form_with(model: patient, local: true) do |form| %>
-  <% if patient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
 
-      <ul>
-        <% patient.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "layouts/validation", item: @patient %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :Name %>
-    <%= form.text_field :Name %>
+    <%= form.text_field :Name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :Address %>
-    <%= form.text_field :Address %>
+    <%= form.text_field :Address, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :Phone_Number %>
-    <%= form.text_field :Phone_Number %>
+    <%= form.text_field :Phone_Number, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Submit", class: "btn btn-lg btn-success" %>
   </div>
 <% end %>
